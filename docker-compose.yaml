@@ -1,0 +1,32 @@
+
+services:
+  filebrowser:
+    image: ${image}
+    container_name: 'filebrowser'
+    restart: ${restart}
+    ports:
+      - 5245:80
+    volumes: 
+      - /etc/localtime:/etc/localtime
+      - vol-filebrowser:/database:rw
+      - vol-filebrowser:/config:rw
+      - ${path}/test:/srv/test:rw       # 本地存储目录挂载  目标都要以绝对路径
+    # command: ["sleep", "10m"]         # 调试问题打开用
+    environment:
+      - PUID=${uid}
+      - PGID=${gid}
+    networks:
+      net-custom:
+        ipv4_address: 172.19.254.249    # 指定 ip
+        aliases: 
+          - net-filebrowser
+
+
+networks: 
+  net-custom:
+    name: ${network}
+    external: true 
+
+volumes:
+  vol-filebrowser:
+    external: true
