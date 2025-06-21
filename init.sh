@@ -87,7 +87,7 @@ changeEnvFile(){
 
 # 创建网络
 echo "----- create network ------"
-mkNetworkPrivate "net-private"
+mkNetworkPublic "net-public"
 mkNetworkPrivate "net-private"
 
 # 创建卷
