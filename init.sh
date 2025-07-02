@@ -18,6 +18,6 @@ echo "----- create volume ------"
 mkVolume "vol-filebrowser"
 
 
-setEnv "path" "$g_workPath" .env
-setEnv "uid" "`id -u`" .env
-setEnv "gid" "`id -g`" .env
+setEnv "path" "$g_workPath" $g_workPath/.env
+setEnv "uid" "`id -u`" $g_workPath/.env
+setEnv "gid" "`id -g`" $g_workPath/.env
