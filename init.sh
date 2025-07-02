@@ -19,5 +19,5 @@ mkVolume "vol-filebrowser"
 
 
 setEnv "path" "$g_workPath" .env
-set "uid" "`id -u`" .env
-set "gid" "`id -g`" .env
+setEnv "uid" "`id -u`" .env
+setEnv "gid" "`id -g`" .env
